@@ -73,8 +73,9 @@
       audio.currenrtTime = 0;
       audio.play();
     }
-    const key = Array.from(document.querySelectorAll("key"));
-    key.forEach((key) =>
+
+    const keys = Array.from(document.querySelectorAll(".key"));
+    keys.forEach((key) =>
       key.addEventListener("transitionend", removeTransition)
     );
     window.addEventListener("keydown", playSound);
