@@ -22,11 +22,11 @@
       fetch(endpoint)
         .then((response) => response.json())
         .then((data) => cities.push(...data));
-      console.log(cities);
+
       function findMatches(wordToMatch, cities) {
         return cities.filter((place) => {
           const regex = new RegExp(wordToMatch, "gi");
-          return place.city.match(regex) || palce.state.match(regex);
+          return place.city.match(regex) || place.state.match(regex);
         });
       }
 
@@ -47,6 +47,7 @@
               regex,
               `<span class="hl">${this.value}</span>`
             );
+            console.log(cityName, stateName);
             return `
       <li>
         <span class="name">${cityName}, ${stateName}</span>
