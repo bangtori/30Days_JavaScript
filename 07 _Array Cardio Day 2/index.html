@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocumArray Cardio 💪💪ent</title>
+  </head>
+  <body>
+    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+    <script>
+      const people = [
+        { name: "Wes", year: 1988 },
+        { name: "Kait", year: 1986 },
+        { name: "Irv", year: 1970 },
+        { name: "Lux", year: 2015 },
+      ];
+
+      const comments = [
+        { text: "Love this!", id: 523423 },
+        { text: "Super good", id: 823423 },
+        { text: "You are the best", id: 2039842 },
+        { text: "Ramen is my fav food ever", id: 123523 },
+        { text: "Nice Nice Nice!", id: 542328 },
+      ];
+
+      const fruits = [
+        { name: "apple", price: 1000 },
+        { name: "mango", price: 2000 },
+        { name: "peach", price: 1000 },
+        { name: "watermelon", price: 3000 },
+      ];
+      // 1. Array.prototype.some
+      const isAdult = people.some(
+        (person) => new Date().getFullYear() - person.year >= 19
+      );
+      console.log({ isAdult });
+
+      // 2. Array.prototype.every
+      const allAdults = people.every(
+        (person) => new Date().getFullYear() - person.year >= 19
+      );
+      console.log({ allAdults });
+
+      // 3. Array.prototype.find
+      const comment = comments.find((comment) => comment.id === 823423);
+      console.log(comment);
+
+      // + Array.prototype.filter
+      const fruit = fruits.find((fruit) => fruit.price === 1000);
+      console.log(fruit);
+      const fruit_1000 = fruits.filter((fruit) => fruit.price === 1000);
+      console.log(fruit_1000);
+
+      // 4. Array.prototype.findIndex
+      const index = comments.findIndex((comment) => comment.id === 823423);
+      console.log(index);
+      const index2 = fruits.findIndex((fruit) => fruit.price === 1000);
+      console.log(index2);
+    </script>
+  </body>
+</html>
