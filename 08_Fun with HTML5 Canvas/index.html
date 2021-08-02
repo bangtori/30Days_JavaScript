@@ -13,6 +13,7 @@
     </style>
   </head>
   <body>
+    <button class="btn_rem">모두 지우기</button>
     <canvas id="draw" width="800" height="800"></canvas>
     <script>
       const canvas = document.querySelector("#draw");
@@ -64,6 +65,12 @@
       canvas.addEventListener("mousemove", draw);
       canvas.addEventListener("mouseup", () => (isDrawing = false));
       canvas.addEventListener("mouseout", () => (isDrawing = false));
+
+      // 지우기 버튼
+      const btn_rem = document.querySelector(".btn_rem");
+      btn_rem.addEventListener("click", () =>
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+      );
     </script>
   </body>
 </html>
