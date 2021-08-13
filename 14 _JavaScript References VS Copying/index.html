@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript References VS Copying</title>
+  </head>
+  <body>
+    <script>
+      // 1. 문자열, 숫자일 때 -> 단순히 값 대입
+      let age = 100;
+      let age2 = age;
+      console.log(age, age2);
+      age = 200;
+      console.log(age, age2);
+
+      let name = "yubin";
+      let name2 = name;
+      console.log(name, name2);
+      name = "tori";
+      console.log(name, name2);
+
+      //2. 배열일 때
+      const players = ["Wes", "Sarah", "Ryan", "Poppy"];
+      const team = players;
+      console.log(players, team);
+      team[3] = "Lux";
+      console.log(players, team); //team[3]만 바꾸고싶었지만 players[3]까지 바뀜
+
+      //2-1.slice()
+      const team2 = players.slice();
+      team2[3] = "slice";
+      //2-2.concat()
+      const team3 = [].concat(players);
+      team3[3] = "concat";
+      //2-3.spread operator[...]
+      const team4 = [...players];
+      team4[3] = "spread operator";
+      //2-4.Array.from()
+      const team5 = Array.from(players);
+      team5[3] = "from";
+
+      console.log(players);
+      console.log(team2);
+      console.log(team3);
+      console.log(team4);
+      console.log(team5);
+
+      //3. 객체일 때
+      const person = {
+        name: "bang tori",
+        age: 80,
+      };
+      // console.log(person);
+      // const captain = person;
+      // captain.number = 99;
+      // console.log(person, captain);
+
+      //3-1. Object.assign
+      const capt2 = Object.assign({}, person, { number: 99, age: 12 });
+      console.log(person, capt2);
+      //3-2.spread
+      const capt3 = { ...person, number: 100, age: 22 };
+      console.log(person, capt3);
+    </script>
+  </body>
+</html>
